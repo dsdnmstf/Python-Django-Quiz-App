@@ -1,3 +1,4 @@
+from turtle import ondrag
 from unicodedata import category
 from django.db import models
 
@@ -21,5 +22,9 @@ class Quiz(models.Model):
 
     class Meta:
         verbose_name_plural = "Quizzes"
+
+class Question(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    title = models.CharField(max_length=300, verbose_name="question")
 
 
