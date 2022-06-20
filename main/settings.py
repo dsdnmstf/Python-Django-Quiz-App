@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     #3rd Part
     "rest_framework",
+    "nested_admin",
 ]
 
 MIDDLEWARE = [
