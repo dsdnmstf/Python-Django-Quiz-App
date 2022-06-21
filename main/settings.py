@@ -37,13 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #my apps
+    #apps
     "quiz",
-    "users"
-
-    #3rd Part
+    "users",
+     #3rd Part
     "rest_framework",
     "nested_admin",
+    'rest_framework.authtoken',
+    'dj_rest_auth'
+
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -110,6 +115,14 @@ AUTH_PASSWORD_VALIDATORS = [
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #     'PAGE_SIZE': 1
 # }
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
