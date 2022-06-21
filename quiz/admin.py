@@ -5,10 +5,13 @@ from .models import Category, Quiz, Question, Answer
 
 class AnswerInLine(nested_admin.NestedTabularInline):
     model = Answer
-
+    extra = 3
+    max_num=6
 class QuestionInline(nested_admin.NestedTabularInline):
     model = Question
     inlines = [AnswerInLine]
+    extra = 3
+    max_num=6
 
 class QuizAdmin(nested_admin.NestedModelAdmin):
     model = Quiz

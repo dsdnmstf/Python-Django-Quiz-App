@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from .views import CategoryDetail, CategoryList
 
 urlpatterns = [
+path("", CategoryList.as_view(), name="category"),
+path("<category>", CategoryDetail.as_view(), name="category-detail"),
 
-    path("nested_admin/", include("nested_admin.urls") )
 ]
