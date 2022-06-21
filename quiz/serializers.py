@@ -23,6 +23,7 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = (
+            "id",
             "answer_text",
             "is_right"
         )
@@ -30,7 +31,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     answer = AnswerSerializer(many=True)
-
+    difficulty = serializers.SerializerMethodField()
     class Meta:
         model = Question
         fields = (
@@ -38,3 +39,6 @@ class QuestionSerializer(serializers.ModelSerializer):
             "answer",
             "difficulty"
         )
+
+    def get_difficulty(self, obj):
+        return obj.get_difficulty_display()
